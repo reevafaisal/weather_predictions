@@ -1,5 +1,7 @@
 ## Skies Unveiled: Patterns, Predictions, and Anomalies in Weather Data
 
+How accurately can a SARIMA model forecast temperature values while accounting for anomalies in the data, and how robust is the model's performance in identifying and predicting anomalous patterns in the time series?
+
 ### Introduction
 
 The dataset, [Global Weather Repository](https://www.kaggle.com/datasets/nelgiriyewithana/global-weather-repository/code), provides comprehensive meteorological data collected from various locations 
@@ -67,7 +69,7 @@ Moving forward, I am choosing to focus on **precipitation** and **temperature** 
 We will first use the Z-Score and IQR methods to flag statistical anomalies.
 
 <div style="margin-bottom: 5px;">
-  <iframe src="temp_comp.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/temp_comp.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 **Z-Score Method:**
