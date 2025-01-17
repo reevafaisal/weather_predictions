@@ -252,7 +252,7 @@ Notably, Iceland is at the lower extreme in both chloropleths. This also helps r
   y = df['air_quality_us-epa-index'].loc[X.index]
   ```
 - Used SHAP values to depict how much each feature contributes to a specific prediction, allowing for both global and local interpretability.
-- **Note:** Since SHAPley is very computationally expensive, I sampled a thousand datasets from `X_train` on which I ran `shap.TreeExplainer`.
+- **Note:** Since SHAPley is very computationally expensive, I sampled a thousand data points from `X_train` on which I ran `shap.TreeExplainer`.
 
 <div style="margin-bottom: 5px;">
   <iframe src="assets/shapley.html" width="700" height="500px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
