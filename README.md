@@ -154,6 +154,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 - TimeSeriesSplit was used for cross-validation for all models as it ensures that the evaluation respects the temporal order of the data, yielding a more reliable assessment of model performance over time.
 
 
+
 ### Forecasting Models
 
 #### Data Preprocessing
@@ -206,6 +207,8 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 - The `Temperature` results emphasize the importance of leveraging ensemble techniques, where single models like SARIMA or Random Forest might fail to capture the complexity of rare patterns effectively, while `Precipitation` results showcase the benefits of simple machine learning models for non-complex data which expend less computational energy.
 
 Note: Temperature trends from 2024-2025 are depicted in the [Climate Analysis](./index.html#climate-analysis) section of the report
+
+
 
 ### Unique Analysis
 #### Geographical Patterns
