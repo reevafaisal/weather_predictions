@@ -222,7 +222,7 @@ Variations for each variable are depicted differently:
 | Wind | color | 
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/weather_comps.html" width="1000" height="700px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/weather_comps.html" width="1000" height="650px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 **Observations:**
@@ -254,7 +254,7 @@ Notably, Iceland is at the lower extreme in both chloropleths. This also helps r
 - Note: Since SHAPley is very computationally expensive, I sampled a thousand datasets from `X_train` on which I ran `shap.TreeExplainer`.
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/shapley.html" width="700" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/shapley.html" width="700" height="500px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 
