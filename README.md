@@ -116,14 +116,14 @@ In order to further assess, our anomaly detection, we will now use a data-driven
 - Total number of outliers predicted for precipitation: 2337 out of 46967 data points.
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/iso_for.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/iso_for.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
-- The Isolation Forest significantly overestimates outliers for temperature.
+- The `Isolation Forest` significantly overestimates outliers for temperature.
   - It flags minute variations in temperature as anomalies, even if these variations are part of natural fluctuations or seasonal patterns.
   - Even slight deviations from high-density clusters are flagged as anomalies because the algorithm does not account for the natural fluctuation patterns.
 - The plot for precipitation anomalies appears more accurate.
-  - Clicking True' in the legend hides the outliers and shows the 'False' points. This reveals a dense concentration of non-outlier data in the 0–1 range, which aligns with precipitation's high skewness.
+  - Clicking 'True' in the legend hides the outliers and shows the 'False' points. This reveals a dense concentration of non-outlier data in the 0–1 range, which aligns with precipitation's high skewness.
   - Doing the same for the Precipitation IQR plot reveals visible lines highlighting the ineffectiveness of this method in temperature data due to quartile-based thresholds resulting in abrupt transitions.
 
 **Conclusion:** Moving forward, for any analysis concerning anomalies, we will use the Z-Score method for temperature and the Isolation Forest for precipitation to ensure reliable and accurate anomaly detection.
