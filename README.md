@@ -9,7 +9,8 @@ weather-related phenomena and their implications on environmental and societal s
 
 <p>
 Before any cleaning, the dataset contains 46967 rows.  
-  
+</p>
+<p>
 The following columns are relevant to the analysis:
 </p>
 
@@ -269,6 +270,10 @@ Notably, Iceland is at the lower extreme in both chloropleths. This also helps r
 #### Environmental Impact
 
 The correlation analysis provides insights into the relationships between meteorological variables and different air quality indicators. 
+
+<div style="margin-bottom: 5px;">
+  <iframe src="assets/heat.html" width="700" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+</div>
 
 1. **Temperature:**
     - Low correlation with Nitrogen Oxides (NO₂) suggesting that temperature variations do not significantly impact the concentration of these pollutants.
