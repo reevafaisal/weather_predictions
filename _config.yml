@@ -26,7 +26,8 @@ navigation:
     - name: Isolation-Forest
       link: ./index.html#isolation-forest
   - name: Framing a Prediction Problem
-      link: ./index.html#framing-a-prediction-problem
+    link: ./index.html#framing-a-prediction-problem
+    sublist:
     - name: Problem Type
       link: ./index.html#problem-type
     - name: Evaluation Metrics
