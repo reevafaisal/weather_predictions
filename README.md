@@ -111,7 +111,7 @@ The vast difference in the number of outliers predicted can be due to the fact t
 
 In order to further assess, our anomaly detection, we will now use a data-driven anomaly detection method to evaluate our results.
 
-##### Isolation-Forest   
+#### Isolation-Forest   
 - Total number of outliers predicted for temperature: 2346 out of 46967 data points.
 - Total number of outliers predicted for precipitation: 2337 out of 46967 data points.
 
@@ -129,6 +129,7 @@ In order to further assess, our anomaly detection, we will now use a data-driven
 **Conclusion:** Moving forward, for any analysis concerning anomalies, we will use the Z-Score method for temperature and the Isolation Forest for precipitation to ensure reliable and accurate anomaly detection.
 
 Note: The extreme variations in `Temperature` and `Precipitation` are depicted in the [Spatial Analysis](./index.html#spatial-analysis) section of the report.
+
 
 ### Framing a Prediction Problem
 
@@ -151,6 +152,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 - For temperature anomalies, the Z-score method was used, while Isolation Forest was selected for precipitation anomalies, 
 - TimeSeriesSplit was used for cross-validation for all models as it ensures that the evaluation respects the temporal order of the data, yielding a more reliable assessment of model performance over time.
 
+
 ### Forecasting Models
 
 #### Data Preprocessing
@@ -161,6 +163,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
   - These lag features serve as inputs for forecasting models, helping to predict current values based on recent historical patterns.
   - After creating lag features, rows containing missing values are dropped.
 
+
 #### Model Results
 
 |    | Variable      | Model         |      MAE |       MSE |   Anomaly MAE |   Anomaly MSE |
@@ -169,6 +172,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 |  1 | Precipitation | SARIMA        | 0.29  |  0.27 |       1.61 |       3.54 |
 |  2 | Temperature   | Random Forest | 2.04  |  8.24  |       6.51 |      46.18  |
 |  3 | Precipitation | Random Forest | 0.23  |  0.23  |       1.71 |       3.66 |
+
 
 #### Stacked Ensemble Model
 
@@ -214,7 +218,7 @@ Variations for each variable are depicted differently:
 | Wind | color | 
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/weather_comps.html" width="800" height="800px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/weather_comps.html" width="700" height="800px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 **Observations:**
@@ -249,11 +253,13 @@ Notably, Iceland is at the lower extreme in both chloropleths. This also helps r
   <iframe src="assets/shapley.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
+
 - Wind speed and humidity are the primary drivers in our model and have the highest SHAP values, indicating that the air quality index is strongly influenced by these factors.
 - This is likely because
   - higher wind speeds disperse pollutants, leading to improved air quality
   - strong winds in certain regions can also carry dust or particulates, impacting AQI negatively
   - moisture in the air can interact with pollutants, either trapping them (worsening AQI) or helping in their deposition (improving AQI)
+
 
 #### Environmental Impact:
 
@@ -277,17 +283,20 @@ The correlation analysis provides insights into the relationships between meteor
     - This consistency suggests precipitation uniformly influences air quality by washing out various pollutants.
 
 
+
 #### Climate Analysis:
 
 Demonstration of changing temperature and precipitation trends across all countries in the dataset from 2024-2025:
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/avg_temp.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/avg_temp.html" width="700" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/avg_prec.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/avg_prec.html" width="700" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
+
+
 
 ### PM Accelerator Mission
 "By making industry-leading tools and education available to individuals from all backgrounds, we level the playing field for future PM leaders. This is the PM Accelerator motto, as we grant aspiring and experienced PMs what they need most – Access. We introduce you to industry leaders, surround you with the right PM ecosystem, and discover the new world of AI product management skills."
