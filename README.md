@@ -272,7 +272,7 @@ Notably, Iceland is at the lower extreme in both chloropleths. This also helps r
 The correlation analysis provides insights into the relationships between meteorological variables and different air quality indicators. 
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/heat.html" width="700" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/heat.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 1. **Temperature:**
