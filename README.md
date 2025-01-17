@@ -161,14 +161,14 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
   - These lag features serve as inputs for forecasting models, helping to predict current values based on recent historical patterns.
   - After creating lag features, rows containing missing values are dropped.
 
-#### Forecasting Models
+#### Model Results
 
 |    | Variable      | Model         |      MAE |       MSE |   Anomaly MAE |   Anomaly MSE |
 |---:|:--------------|:--------------|---------:|----------:|--------------:|--------------:|
-|  0 | Temperature   | SARIMA        | 2.91226  | 13.6432   |       7.22149 |      58.805   |
-|  1 | Precipitation | SARIMA        | 0.294592 |  0.271509 |       1.61489 |       3.54337 |
-|  2 | Temperature   | Random Forest | 2.04379  |  8.24873  |       6.51824 |      46.1831  |
-|  3 | Precipitation | Random Forest | 0.23821  |  0.23849  |       1.71982 |       3.66085 |
+|  0 | Temperature   | SARIMA        | 2.91  | 13.64   |       7.22 |      58.80   |
+|  1 | Precipitation | SARIMA        | 0.29  |  0.27 |       1.61 |       3.54 |
+|  2 | Temperature   | Random Forest | 2.04  |  8.24  |       6.51 |      46.18  |
+|  3 | Precipitation | Random Forest | 0.23  |  0.23  |       1.71 |       3.66 |
 
 #### Stacked Ensemble Model
 
@@ -176,12 +176,12 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 
 |    | Variable      | Model         |      MAE |       MSE |   Anomaly MAE |   Anomaly MSE |
 |---:|:--------------|:--------------|---------:|----------:|--------------:|--------------:|
-|  0 | Temperature   | SARIMA        | 2.91226  | 13.6432   |       7.22149 |      58.805   |
-|  1 | Precipitation | SARIMA        | 0.294592 |  0.271509 |       1.61489 |       3.54337 |
-|  2 | Temperature   | Random Forest | 2.04379  |  8.24873  |       6.51824 |      46.1831  |
-|  3 | Precipitation | Random Forest | 0.23821  |  0.23849  |       1.71982 |       3.66085 |
-|  4 | Temperature   | Meta model    | 1.81582  |  5.87597  |       3.30821 |      13.9493  |
-|  5 | Precipitation | Meta model    | 0.25348  |  0.244041 |       1.762   |       3.83926 |
+|  0 | Temperature   | SARIMA        | 2.91  | 13.64   |       7.22 |      58.80   |
+|  1 | Precipitation | SARIMA        | 0.29 |  0.27 |       1.61 |       3.54 |
+|  2 | Temperature   | Random Forest | 2.04  |  8.24  |       6.51 |      46.18  |
+|  3 | Precipitation | Random Forest | 0.23  |  0.23  |       1.71 |       3.66 |
+|  4 | Temperature   | Meta model    | 1.81  |  5.87  |       3.30 |      13.94  |
+|  5 | Precipitation | Meta model    | 0.25  |  0.24 |       1.76   |       3.83 |
 
 
 
