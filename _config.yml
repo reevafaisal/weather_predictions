@@ -56,6 +56,6 @@ navigation:
     - name: Climate Analysis
       link: ./index.html#climate-analysis
   - name: PM Accelerator
-    link: ./index.html#pm-accelerator
+    link: ./index.html#pm-accelerator-mission
     # - name: Isolation-Forest
     #   link: ./index.html#isolation-forest
