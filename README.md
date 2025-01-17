@@ -149,7 +149,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
    - **Anomaly MAE and Anomaly RMSE:** indicates the proportion of correctly identified instances for each quartile, reducing false positives, and is prioritized over **accuracy** which is less informative in imbalanced data settings (such as in our population level data).
 
 #### Modelling Approach
-- Iceland was chosen as the focus region because analyzing data from a single country offers a more precise and localized perspective, which often leads to more meaningful insights compared to studying all countries simultaneously.
+- **Iceland** was chosen as the focus region because analyzing data from a single country offers a more precise and localized perspective, which often leads to more meaningful insights compared to studying all countries simultaneously.
 - For temperature anomalies, the Z-score method was used, while Isolation Forest was selected for precipitation anomalies, 
 - TimeSeriesSplit was used for cross-validation for all models as it ensures that the evaluation respects the temporal order of the data, yielding a more reliable assessment of model performance over time.
 
@@ -159,9 +159,9 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 
 #### Data Preprocessing
 1. **Region Filtering:** The dataset is filtered to include only data from Iceland, focusing the analysis on a single country to provide region-specific insights.
-2. **DateTime Handling:** The timestamp column is normalized and set as the index to facilitate time-series operations. The data is then grouped by index, averaged, and resampled to a daily frequency. Missing values are handled through linear interpolation.
+2. **DateTime Handling:** The `last_updated` column is normalized and set as the index to facilitate time-series operations. The data is then grouped by index, averaged, resampled to a daily frequency, and sorted by date in ascending order. Missing values are handled through linear interpolation.
 3. **Lag Features Creation:** To capture temporal dependencies, lagged versions of temperature and precipitation are generated:
-  - lag_1, lag_2, and lag_3 columns represent the values from the prior day, two days ago, and three days ago, respectively.
+  - `lag_1`, `lag_2`, and `lag_3` columns represent the values from the prior day, two days ago, and three days ago, respectively.
   - These lag features serve as inputs for forecasting models, helping to predict current values based on recent historical patterns.
   - After creating lag features, rows containing missing values are dropped.
 
@@ -192,19 +192,19 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 
 
 **Temperature:**
-- Errors for temperature forecasting are higher across all models compared to precipitation, which is expected due to the more complex and dynamic nature of temperature fluctuations.
-- The meta-model outshines other models, achieving the lowest MAE (1.82) and MSE (5.88) for normal data, indicating its superior ability to generalize across diverse temperature patterns.
+- Errors for `temperature` forecasting are higher across all models compared to `precipitation`, which is expected due to the more complex and dynamic nature of `temperature` fluctuations.
+- The **meta-model** outshines other models, achieving the lowest MAE (1.82) and MSE (5.88) for normal data, indicating its superior ability to generalize across diverse temperature patterns.
 
 **Precipitation:**
-- Precipitation forecasts consistently yield lower MAE and MSE values across models compared to temperature, reflecting the comparatively more stable nature of precipitation data.
-- The Random Forest model retains the lowest errors (MAE: 0.23821, MSE: 0.23849) outperforming both SARIMA and the Meta Model. Its inherent capacity to capture non-linear interactions and avoid overfitting through ensemble averaging ensures robust and precise predictions.
+- `Precipitation` forecasts consistently yield lower MAE and MSE values across models compared to `temperature`, reflecting the comparatively more stable nature of `precipitation` data.
+- The **Random Forest** model retains the lowest errors (MAE: 0.23821, MSE: 0.23849) outperforming both **SARIMA** and the **Meta Model**. Its inherent capacity to capture non-linear interactions and avoid overfitting through ensemble averaging ensures robust and precise predictions.
 
 #### Key Takeaways
-- `Temperature` trends are more complex, involving subtle seasonal patterns and continuous variability. The stacked ensemble's combination of linear and non-linear models provides the flexibility to model these patterns effectively. However, `Precipitation` data is more discrete and less prone to subtle trends and thus benefits from Random Forest's direct handling of feature splits and non-linearity. The additional complexity of the meta-model does not add significant benefits and slightly increases error for normal precipitation data.
-- All models struggle with anomaly scenarios, as reflected by the significantly higher MAE and MSE values for anomalies compared to normal data. However, the meta-model exhibits the overall best capability to handle anomalies. Although Random Forest does just slightly better at handling `Precipitation` anomalies, the meta-model's handling of `Temperature` anomalies is vastly better making it superior. This is another reflection of the simplicity of precipitation's data which does require the complex ensemble model.
-- The meta-model demonstrates its superiority in capturing both normal and anomalous patterns, making it the overall most reliable option for this use case.
-- While Random Forest (prec) and SARIMA perform reasonably well for normal data, they lag behind in handling anomalies, highlighting the need for ensemble techniques to address such challenges.
-- The `Temperature` results emphasize the importance of leveraging ensemble techniques, where single models like SARIMA or Random Forest might fail to capture the complexity of rare patterns effectively, while `Precipitation` results showcase the benefits of simple machine learning models for non-complex data which expend less computational energy.
+- `Temperature` trends are more complex, involving subtle seasonal patterns and continuous variability. The stacked ensemble's combination of linear and non-linear models provides the flexibility to model these patterns effectively. However, `precipitation` data is more discrete and less prone to subtle trends and thus benefits from **Random Forest's** direct handling of feature splits and non-linearity. The additional complexity of the meta-model does not add significant benefits and slightly increases error for normal precipitation data.
+- All models struggle with anomaly scenarios, as reflected by the significantly higher MAE and MSE values for anomalies compared to normal data. However, the meta-model exhibits the overall best capability to handle anomalies. Although **Random Forest** does just slightly better at handling `Precipitation` anomalies, the meta-model's handling of `Temperature` anomalies is vastly better making it superior. This is another reflection of the simplicity of `precipitation` data which does not require the complex ensemble model.
+- The **meta-model** demonstrates its superiority in capturing both normal and anomalous patterns, making it the overall most reliable option for this use case.
+- While **Random Forest**-`temperature` and **SARIMA** perform reasonably well for our data, they lag behind in handling anomalies, highlighting the need for ensemble techniques to address such challenges.
+- The `temperature` results emphasize the importance of leveraging ensemble techniques, where simple models like **SARIMA** or **Random Forest** might fail to capture the complexity of rare patterns effectively, while `precipitation` evaluation results showcase the benefits of simple machine learning models for non-complex data which expend less computational energy.
 
 Note: Temperature trends from 2024-2025 are depicted in the [Climate Analysis](./index.html#climate-analysis) section of the report
 
@@ -232,6 +232,8 @@ Variations for each variable are depicted differently:
 - Random Forest and Meta models, with their ability to handle complexity, are better suited for generalization, and this helps explain their better performance on Iceland's data.
 
 #### Spatial Analysis
+
+Note: While grouping by country, the aggregation metric used was max, to amplify extreme weather conditions allowing for comparisons with the [anomaly detection](./index.html#statistical-anomaly-detection) schemes explored earlier.  
 
 <div style="margin-bottom: 5px;">
   <iframe src="assets/temp_chlo.html" width="800" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
