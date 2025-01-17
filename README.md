@@ -233,7 +233,7 @@ Variations for each variable are depicted differently:
 
 #### Spatial Analysis
 
-Note: While grouping by country, the aggregation metric used was max, to amplify extreme weather conditions allowing for comparisons with the [anomaly detection](./index.html#statistical-anomaly-detection) schemes explored earlier.  
+**Note:** While grouping by country, the aggregation metric used was max, to amplify extreme weather conditions allowing for comparisons with the [anomaly detection](./index.html#statistical-anomaly-detection) schemes explored earlier.  
 
 <div style="margin-bottom: 5px;">
   <iframe src="assets/temp_chlo.html" width="800" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
