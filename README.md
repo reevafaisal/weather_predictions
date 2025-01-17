@@ -91,14 +91,14 @@ The vast difference in the number of outliers predicted can be due to the fact t
 
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/temp_box.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/temp_box.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 **Temperature Skewness: -0.86**
 
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/prec_box.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/prec_box.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 **Precipitation Skewness: 19.56**
@@ -129,6 +129,7 @@ In order to further assess, our anomaly detection, we will now use a data-driven
 **Conclusion:** Moving forward, for any analysis concerning anomalies, we will use the Z-Score method for temperature and the Isolation Forest for precipitation to ensure reliable and accurate anomaly detection.
 
 Note: The extreme variations in `Temperature` and `Precipitation` are depicted in the [Spatial Analysis](./index.html#spatial-analysis) section of the report.
+
 
 
 ### Framing a Prediction Problem
@@ -207,7 +208,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 Note: Temperature trends from 2024-2025 are depicted in the [Climate Analysis](./index.html#climate-analysis) section of the report
 
 ### Unique Analysis
-#### Geographical Patterns:
+#### Geographical Patterns
 
 Using this plot, we can explore how weather conditions vary across regions.
 Variations for each variable are depicted differently:
@@ -218,7 +219,7 @@ Variations for each variable are depicted differently:
 | Wind | color | 
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/weather_comps.html" width="700" height="800px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/weather_comps.html" width="1000" height="700px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 **Observations:**
@@ -227,7 +228,7 @@ Variations for each variable are depicted differently:
 - This helps us understand why our SARIMA model struggled to make accurate predictions.
 - Random Forest and Meta models, with their ability to handle complexity, are better suited for generalization, and this helps explain their better performance on Iceland's data.
 
-#### Spatial Analysis:
+#### Spatial Analysis
 
 <div style="margin-bottom: 5px;">
   <iframe src="assets/temp_chlo.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
@@ -250,7 +251,7 @@ Notably, Iceland is at the lower extreme in both chloropleths. This also helps r
 - Note: Since SHAPley is very computationally expensive, I sampled a thousand datasets from `X_train` on which I ran `shap.TreeExplainer`.
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/shapley.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/shapley.html" width="700" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 
@@ -261,7 +262,7 @@ Notably, Iceland is at the lower extreme in both chloropleths. This also helps r
   - moisture in the air can interact with pollutants, either trapping them (worsening AQI) or helping in their deposition (improving AQI)
 
 
-#### Environmental Impact:
+#### Environmental Impact
 
 The correlation analysis provides insights into the relationships between meteorological variables and different air quality indicators. 
 
@@ -284,7 +285,7 @@ The correlation analysis provides insights into the relationships between meteor
 
 
 
-#### Climate Analysis:
+#### Climate Analysis
 
 Demonstration of changing temperature and precipitation trends across all countries in the dataset from 2024-2025:
 
