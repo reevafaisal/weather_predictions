@@ -91,14 +91,14 @@ The vast difference in the number of outliers predicted can be due to the fact t
 
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/temp_box.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/temp_box.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 **Temperature Skewness: -0.86**
 
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/prec_box.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/prec_box.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 **Precipitation Skewness: 19.56**
@@ -214,7 +214,7 @@ Variations for each variable are depicted differently:
 | Wind | color | 
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/weather_comps.html" width="950" height="800px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/weather_comps.html" width="800" height="800px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 **Observations:**
@@ -226,11 +226,11 @@ Variations for each variable are depicted differently:
 #### Spatial Analysis:
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/temp_chlo.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/temp_chlo.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/prec_chlo.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/prec_chlo.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 Notably, Iceland is at the lower extreme in both chloropleths. This also helps rationalize why Iceland was a near-outlier when analyzing country-wise [geographical patterns](./index.html#geographical-patterns).
