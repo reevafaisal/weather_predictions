@@ -1,7 +1,5 @@
 ## Skies Unveiled: Patterns, Predictions, and Anomalies in Weather Data
 
-How accurately can a SARIMA model forecast temperature values while accounting for anomalies in the data, and how robust is the model's performance in identifying and predicting anomalous patterns in the time series?
-
 ### Introduction
 
 The dataset, [Global Weather Repository](https://www.kaggle.com/datasets/nelgiriyewithana/global-weather-repository/code), provides comprehensive meteorological data collected from various locations 
