@@ -9,6 +9,7 @@ weather-related phenomena and their implications on environmental and societal s
 
 <p>
 Before any cleaning, the dataset contains 46967 rows.  
+  
 The following columns are relevant to the analysis:
 </p>
 
