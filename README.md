@@ -10,7 +10,7 @@ enabling detailed global climate patterns and trend analysis. This dataset is va
 weather-related phenomena and their implications on environmental and societal systems.
 
 <p>
-Before any cleaning, the dataset contains 46967 rows.
+Before any cleaning, the dataset contains 46967 rows.  
 The following columns are relevant to the analysis:
 </p>
 
@@ -46,7 +46,10 @@ The following columns are relevant to the analysis:
 
 ### Data Cleaning 
 - Removed columns that were either irrelevant to the analysis or provided redundant information, such as duplicate measurements in different units or unnecessary time-related columns.
-- Transformed the `last_updated` column into a datetime format for consistency and easier time-based analysis.
+- Transformed the `last_updated` column into a DateTime format for consistency and easier time-based analysis.
+
+Cleaned Dataset:
+
 
 | country     | location_name    |   latitude |   longitude | timezone       | last_updated        |   temperature_celsius | condition_text   |   wind_kph |   wind_degree | wind_direction   |   pressure_mb |   precip_mm |   humidity |   cloud |   feels_like_celsius |   visibility_km |   uv_index |   gust_kph |   air_quality_Carbon_Monoxide |   air_quality_Ozone |   air_quality_Nitrogen_dioxide |   air_quality_Sulphur_dioxide |   air_quality_PM2.5 |   air_quality_PM10 |   air_quality_us-epa-index |   air_quality_gb-defra-index |   moon_illumination |   Temperature_Z |   Precipitation_Z | Anomaly_Temperature_Z   | Anomaly_Precipitation_Z   | Anomaly_Temperature_IQR   | Anomaly_Precipitation_IQR   |
 |:------------|:-----------------|-----------:|------------:|:---------------|:--------------------|----------------------:|:-----------------|-----------:|--------------:|:-----------------|--------------:|------------:|-----------:|--------:|---------------------:|----------------:|-----------:|-----------:|------------------------------:|--------------------:|-------------------------------:|------------------------------:|--------------------:|-------------------:|---------------------------:|-----------------------------:|--------------------:|----------------:|------------------:|:------------------------|:--------------------------|:--------------------------|:----------------------------|
@@ -62,41 +65,44 @@ The following columns are relevant to the analysis:
 
 Moving forward, I am choosing to focus on **precipitation** and **temperature** as key variables for statistical anomaly detection. Temperature and precipitation offer a meaningful basis for comparison across different locations and periods, making them ideal for detecting and understanding statistical anomalies in weather data. This focus will enable a targeted and practical approach to uncovering significant outliers and trends.
 
-##### Z-Score and IQR 
+#### Z-Score and IQR 
 
 We will first use the Z-Score and IQR methods to flag statistical anomalies.
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/temp_comp.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/temp_comp.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/prec_comp.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/prec_comp.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
-**Z-Score Method:**
+**Z-Score Method**
 - Values that exceed a threshold of `abs(z) > 3` are flagged as outliers.
 - Total number of outliers predicted for temperature: 258 out of 46967 data points.
 - Total number of outliers predicted for precipitation: 566 out of 46967 data points.
   
-**IQR Method:**
-- Values beyond 1.5 * IQR from the first or third quartile are flagged as outliers.
+**IQR Method**
+- Values beyond `1.5 * IQR` from the first or third quartile are flagged as outliers.
 - Total number of outliers predicted for temperature: 1527 out of 46967 data points.
 - Total number of outliers predicted for precipitation: 9092 out of 46967 data points.
 
 The vast difference in the number of outliers predicted can be due to the fact that the Z-Score method assumes that the data is normally distributed while the IQR method makes no such assumption. It is thus important to assess the skewness of the data for more accurate predictions.
 
-**Temperature Skewness: -0.86**
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/temp_box.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/temp_box.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+</div>
+
+**Temperature Skewness: -0.86**
+
+
+<div style="margin-bottom: 5px;">
+  <iframe src="assets/prec_box.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 **Precipitation Skewness: 19.56**
 
-<div style="margin-bottom: 5px;">
-  <iframe src="assets/prec_box.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
-</div>
 
 - The near-normal distribution of temperature with a skewness of -0.86 suggests the distribution is approximately symmetric, and thus the Z-Score method is likely more reliable for temperature anomalies.
 - The slight negative skew indicates that some lower temperature values pull the mean below the median.
@@ -105,7 +111,7 @@ The vast difference in the number of outliers predicted can be due to the fact t
 
 In order to further assess, our anomaly detection, we will now use a data-driven anomaly detection method to evaluate our results.
 
-##### Isolation-Forest: 
+##### Isolation-Forest   
 - Total number of outliers predicted for temperature: 2346 out of 46967 data points.
 - Total number of outliers predicted for precipitation: 2337 out of 46967 data points.
 
@@ -122,7 +128,7 @@ In order to further assess, our anomaly detection, we will now use a data-driven
 
 **Conclusion:** Moving forward, for any analysis concerning anomalies, we will use the Z-Score method for temperature and the Isolation Forest for precipitation to ensure reliable and accurate anomaly detection.
 
-Note: The extreme variations in `Temperature` and `Precipitation` are depicted in the [spatial analysis](./index.html#spatial-analysis) section of the report.
+Note: The extreme variations in `Temperature` and `Precipitation` are depicted in the [Spatial Analysis](./index.html#spatial-analysis) section of the report.
 
 ### Framing a Prediction Problem
 
@@ -140,14 +146,14 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
    - **RMSE (Root Mean Squared Error):** Emphasizes larger errors by squaring differences before averaging, reflecting the impact of significant prediction deviations.
    - **Anomaly MAE and Anomaly RMSE:** indicates the proportion of correctly identified instances for each quartile, reducing false positives, and is prioritized over **accuracy** which is less informative in imbalanced data settings (such as in our population level data).
 
-#### Modelling Approach:
+#### Modelling Approach
 - Iceland was chosen as the focus region because analyzing data from a single country offers a more precise and localized perspective, which often leads to more meaningful insights compared to studying all countries simultaneously.
 - For temperature anomalies, the Z-score method was used, while Isolation Forest was selected for precipitation anomalies, 
 - TimeSeriesSplit was used for cross-validation for all models as it ensures that the evaluation respects the temporal order of the data, yielding a more reliable assessment of model performance over time.
 
 ### Forecasting Models
 
-#### Data Preprocessing:
+#### Data Preprocessing
 1. **Region Filtering:** The dataset is filtered to include only data from Iceland, focusing the analysis on a single country to provide region-specific insights.
 2. **DateTime Handling:** The timestamp column is normalized and set as the index to facilitate time-series operations. The data is then grouped by index, averaged, and resampled to a daily frequency. Missing values are handled through linear interpolation.
 3. **Lag Features Creation:** To capture temporal dependencies, lagged versions of temperature and precipitation are generated:
@@ -163,33 +169,41 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 |  1 | Precipitation | SARIMA        | 0.294592 |  0.271509 |       1.61489 |       3.54337 |
 |  2 | Temperature   | Random Forest | 2.04379  |  8.24873  |       6.51824 |      46.1831  |
 |  3 | Precipitation | Random Forest | 0.23821  |  0.23849  |       1.71982 |       3.66085 |
+
+#### Stacked Ensemble Model
+
+![image](assets/stacking_ensemble_flowchart.png)
+
+|    | Variable      | Model         |      MAE |       MSE |   Anomaly MAE |   Anomaly MSE |
+|---:|:--------------|:--------------|---------:|----------:|--------------:|--------------:|
+|  0 | Temperature   | SARIMA        | 2.91226  | 13.6432   |       7.22149 |      58.805   |
+|  1 | Precipitation | SARIMA        | 0.294592 |  0.271509 |       1.61489 |       3.54337 |
+|  2 | Temperature   | Random Forest | 2.04379  |  8.24873  |       6.51824 |      46.1831  |
+|  3 | Precipitation | Random Forest | 0.23821  |  0.23849  |       1.71982 |       3.66085 |
 |  4 | Temperature   | Meta model    | 1.81582  |  5.87597  |       3.30821 |      13.9493  |
 |  5 | Precipitation | Meta model    | 0.25348  |  0.244041 |       1.762   |       3.83926 |
 
-#### Stacked Ensemble Model:
 
-![image](assets/stacking_ensemble_flowchart.png)
 
 **Temperature:**
 - Errors for temperature forecasting are higher across all models compared to precipitation, which is expected due to the more complex and dynamic nature of temperature fluctuations.
 - The meta-model outshines other models, achieving the lowest MAE (1.82) and MSE (5.88) for normal data, indicating its superior ability to generalize across diverse temperature patterns.
+
 **Precipitation:**
 - Precipitation forecasts consistently yield lower MAE and MSE values across models compared to temperature, reflecting the comparatively more stable nature of precipitation data.
 - The Random Forest model retains the lowest errors (MAE: 0.23821, MSE: 0.23849) outperforming both SARIMA and the Meta Model. Its inherent capacity to capture non-linear interactions and avoid overfitting through ensemble averaging ensures robust and precise predictions.
 
-#### Key Takeaways:
+#### Key Takeaways
 - `Temperature` trends are more complex, involving subtle seasonal patterns and continuous variability. The stacked ensemble's combination of linear and non-linear models provides the flexibility to model these patterns effectively. However, `Precipitation` data is more discrete and less prone to subtle trends and thus benefits from Random Forest's direct handling of feature splits and non-linearity. The additional complexity of the meta-model does not add significant benefits and slightly increases error for normal precipitation data.
 - All models struggle with anomaly scenarios, as reflected by the significantly higher MAE and MSE values for anomalies compared to normal data. However, the meta-model exhibits the overall best capability to handle anomalies. Although Random Forest does just slightly better at handling `Precipitation` anomalies, the meta-model's handling of `Temperature` anomalies is vastly better making it superior. This is another reflection of the simplicity of precipitation's data which does require the complex ensemble model.
 - The meta-model demonstrates its superiority in capturing both normal and anomalous patterns, making it the overall most reliable option for this use case.
 - While Random Forest (prec) and SARIMA perform reasonably well for normal data, they lag behind in handling anomalies, highlighting the need for ensemble techniques to address such challenges.
 - The `Temperature` results emphasize the importance of leveraging ensemble techniques, where single models like SARIMA or Random Forest might fail to capture the complexity of rare patterns effectively, while `Precipitation` results showcase the benefits of simple machine learning models for non-complex data which expend less computational energy.
 
+Note: Temperature trends from 2024-2025 are depicted in the [Climate Analysis](./index.html#climate-analysis) section of the report
+
 ### Unique Analysis
 #### Geographical Patterns:
-
-<div style="margin-bottom: 5px;">
-  <iframe src="assets/weather_comps.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
-</div>
 
 Using this plot, we can explore how weather conditions vary across regions.
 Variations for each variable are depicted differently:
@@ -198,6 +212,10 @@ Variations for each variable are depicted differently:
 | Humidity | y-axis |
 | Precipitation | size |
 | Wind | color | 
+
+<div style="margin-bottom: 5px;">
+  <iframe src="assets/weather_comps.html" width="950" height="800px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+</div>
 
 **Observations:**
 - It appears that Iceland is just at the edge of being an outlier at the lower quartile. 
@@ -263,10 +281,16 @@ The correlation analysis provides insights into the relationships between meteor
 
 Demonstration of changing temperature and precipitation trends across all countries in the dataset from 2024-2025:
 
+<div style="margin-bottom: 5px;">
+  <iframe src="assets/avg_temp.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+</div>
 
+<div style="margin-bottom: 5px;">
+  <iframe src="assets/avg_prec.html" width="700" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+</div>
 
-
-
+### PM Accelerator Mission
+"By making industry-leading tools and education available to individuals from all backgrounds, we level the playing field for future PM leaders. This is the PM Accelerator motto, as we grant aspiring and experienced PMs what they need most – Access. We introduce you to industry leaders, surround you with the right PM ecosystem, and discover the new world of AI product management skills."
 
 
 
