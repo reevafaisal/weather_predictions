@@ -222,7 +222,7 @@ Variations for each variable are depicted differently:
 | Wind | color | 
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/weather_comps.html" width="1000" height="650px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/weather_comps.html" width="1000" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 **Observations:**
@@ -234,11 +234,11 @@ Variations for each variable are depicted differently:
 #### Spatial Analysis
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/temp_chlo.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/temp_chlo.html" width="800" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/prec_chlo.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/prec_chlo.html" width="800" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 Notably, Iceland is at the lower extreme in both chloropleths. This also helps rationalize why Iceland was a near-outlier when analyzing country-wise [geographical patterns](./index.html#geographical-patterns).
