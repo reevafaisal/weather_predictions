@@ -1,0 +1,60 @@
+title: "Weather forecasting and Anomaly Detection" 
+
+description: > 
+  By [Reeva faisa](https://reevafaisal.github.io/Portfolio/)
+# logo: "assets/Screenshot 2024-10-13 at 4.04.46 PM_batcheditor_fotor (1).jpg"
+email: reevaf@umich.edu
+# theme: jekyll-theme-minimal
+favicon: true 
+plugins: 
+  - jekyll-remote-theme
+
+color-scheme: light
+
+remote_theme: reevafaisal/jekyll-theme-minimal-new
+
+navigation:
+  - name: Introduction
+    link: ./index.html#introduction
+  - name: Data Cleaning
+    link: ./index.html#data-cleaning
+  - name: Advanced EDA
+    link: ./index.html#advanced-exploratory-data-analysis
+    sublist:
+    - name: Z-Score & IQR
+      link: ./index.html#z-score-and-iqr
+    - name: Isolation-Forest
+      link: ./index.html#isolation-forest
+  - name: Framing a Prediction Problem
+      link: ./index.html#framing-a-prediction-problem
+    - name: Problem Type
+      link: ./index.html#problem-type
+    - name: Evaluation Metrics
+      link: ./index.html#evaluation-metrics
+  - name: Forecasting Models
+    link: ./index.html#forecasting-models
+    sublist:
+    - name: Data Preprocessing
+      link: ./index.html#data-preprocessing
+    - name: Model Results
+      link: ./index.html#model-results
+    - name: Stacked Ensemble Model
+      link: ./index.html#stacked-ensemble-model
+    - name: Key Takeaways
+      link: ./index.html#key-takeaways
+  - name: Unique Analysis
+    sublist:
+    - name: Geographical Patterns
+      link: ./index.html#geographical-patterns
+    - name: Spatial Analysis
+      link: ./index.html#spatial-analysis
+    - name: Feature Importance
+      link: ./index.html#feature-importance
+    - name: Environmental Impact
+      link: ./index.html#environmental-impact
+    - name: Climate Analysis
+      link: ./index.html#climate-analysis
+  - name: PM Accelerator
+    link: ./index.html#pm-accelerator
+    # - name: Isolation-Forest
+    #   link: ./index.html#isolation-forest
