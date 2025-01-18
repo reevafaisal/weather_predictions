@@ -236,11 +236,11 @@ Variations for each variable are depicted differently:
 **Note:** While grouping by country, the aggregation metric used was max, to amplify extreme weather conditions allowing for comparisons with the [anomaly detection](./index.html#statistical-anomaly-detection) schemes explored earlier.  
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/temp_chlo.html" width="800" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/temp_chlo1.html" width="800" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/prec_chlo.html" width="800" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/prec_chlo1.html" width="800" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 Notably, Iceland is at the lower extreme in both chloropleths. This also helps rationalize why Iceland was a near-outlier when analyzing country-wise [geographical patterns](./index.html#geographical-patterns).
@@ -272,7 +272,7 @@ Notably, Iceland is at the lower extreme in both chloropleths. This also helps r
 The correlation analysis provides insights into the relationships between meteorological variables and different air quality indicators. 
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/heat1.html" width="600" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/heat2.html" width="700" height="500px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 1. **Temperature:**
