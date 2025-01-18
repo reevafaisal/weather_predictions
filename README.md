@@ -128,16 +128,16 @@ In order to further assess, our anomaly detection, we will now use a data-driven
 
 **Conclusion:** Moving forward, for any analysis concerning anomalies, we will use the Z-Score method for temperature and the Isolation Forest for precipitation to ensure reliable and accurate anomaly detection.
 
-Note: The extreme variations in `Temperature` and `Precipitation` are depicted in the [Spatial Analysis](./index.html#spatial-analysis) section of the report.
+**Note:** The extreme variations in `Temperature` and `Precipitation` are depicted in the [Spatial Analysis](./index.html#spatial-analysis) section of the report.
 
 
 
 ### Framing a Prediction Problem
 
 The goal of this analysis is to evaluate:
-**How accurately can time series forecasting models forecast temperature and precipitation values while accounting for anomalies in the data, and how robust is the model's performance in identifying and predicting anomalous patterns in the time series?**
+**How accurately can time series forecasting models forecast temperature and precipitation, and how robust is the model's performance in specifically identifying and predicting anomalous patterns in the time series?**
 
-##### Problem Type
+#### Problem Type
 This is primarily a time-series forecasting and anomaly detection problem. The goal is twofold:
 1. Forecasting future values: Predicting continuous variables — `temperature` and `precipitation` — over time, which requires a regression-based approach tailored to time-series data.
 2. Identifying anomalies: Pinpointing unexpected deviations from normal patterns, represented by binary anomaly indicators. The objective here is to test how robust the model is in predicting specifically points that were previously classified as anomalies. These classifications are based on our previously explored statistical thresholds (`Z-Score_Temp_Anomalies`) and machine learning-based anomaly detection methods (`IsolationForest_Prec_anomalies`).
@@ -200,13 +200,13 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 - The **Random Forest** model retains the lowest errors (MAE: 0.23821, MSE: 0.23849) outperforming both **SARIMA** and the **Meta Model**. Its inherent capacity to capture non-linear interactions and avoid overfitting through ensemble averaging ensures robust and precise predictions.
 
 #### Key Takeaways
-- `Temperature` trends are more complex, involving subtle seasonal patterns and continuous variability. The stacked ensemble's combination of linear and non-linear models provides the flexibility to model these patterns effectively. However, `precipitation` data is more discrete and less prone to subtle trends and thus benefits from **Random Forest's** direct handling of feature splits and non-linearity. The additional complexity of the meta-model does not add significant benefits and slightly increases error for normal precipitation data.
+- `Temperature` trends are more complex, involving subtle seasonal patterns and continuous variability, as seen in the plots previously. The stacked ensemble's combination of linear and non-linear models provides the flexibility to model these patterns effectively. However, `precipitation` data is more discrete and less prone to subtle trends and thus benefits from **Random Forest's** direct handling of feature splits and non-linearity. The additional complexity of the meta-model does not add significant benefits and slightly increases error for normal precipitation data.
 - All models struggle with anomaly scenarios, as reflected by the significantly higher MAE and MSE values for anomalies compared to normal data. However, the meta-model exhibits the overall best capability to handle anomalies. Although **Random Forest** does just slightly better at handling `Precipitation` anomalies, the meta-model's handling of `Temperature` anomalies is vastly better making it superior. This is another reflection of the simplicity of `precipitation` data which does not require the complex ensemble model.
 - The **meta-model** demonstrates its superiority in capturing both normal and anomalous patterns, making it the overall most reliable option for this use case.
 - While **Random Forest**-`temperature` and **SARIMA** perform reasonably well for our data, they lag behind in handling anomalies, highlighting the need for ensemble techniques to address such challenges.
 - The `temperature` results emphasize the importance of leveraging ensemble techniques, where simple models like **SARIMA** or **Random Forest** might fail to capture the complexity of rare patterns effectively, while `precipitation` evaluation results showcase the benefits of simple machine learning models for non-complex data which expend less computational energy.
 
-Note: Temperature trends from 2024-2025 are depicted in the [Climate Analysis](./index.html#climate-analysis) section of the report
+**Note:** Temperature trends from 2024-2025 are depicted in the [Climate Analysis](./index.html#climate-analysis) section of the report
 
 
 
@@ -272,11 +272,11 @@ Notably, Iceland is at the lower extreme in both chloropleths. This also helps r
 The correlation analysis provides insights into the relationships between meteorological variables and different air quality indicators. 
 
 <div style="margin-bottom: 5px;">
-  <iframe src="assets/heat.html" width="800" height="600px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+  <iframe src="assets/heat1.html" width="600" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
 1. **Temperature:**
-    - Low correlation with Nitrogen Oxides (NO₂) suggesting that temperature variations do not significantly impact the concentration of these pollutants.
+    - Low correlation with Nitrogen dioxides (NO₂) suggesting that temperature variations do not significantly impact the concentration of these pollutants.
     - Aligns with the nature of NO₂ emissions, which are more closely tied to combustion processes rather than atmospheric thermal effects.
     - High correlation with PM₁₀ indicating that temperature plays a significant role in the dispersion or formation of particulate pollutants, possibly through thermal inversion layers or increased secondary aerosol formation.
       
@@ -306,7 +306,7 @@ Demonstration of changing temperature and precipitation trends across all countr
   <iframe src="assets/avg_prec.html" width="700" height="550px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
 
-
+**Note:** In order to view the trend of a single country alone, double click it in the legend!
 
 ### PM Accelerator Mission
 "By making industry-leading tools and education available to individuals from all backgrounds, we level the playing field for future PM leaders. This is the PM Accelerator motto, as we grant aspiring and experienced PMs what they need most – Access. We introduce you to industry leaders, surround you with the right PM ecosystem, and discover the new world of AI product management skills."
