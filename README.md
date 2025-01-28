@@ -61,7 +61,9 @@ Cleaned Dataset:
 #### Statistical Anomaly Detection
 
  - Given that our dataset reflects current weather conditions rather than traditional forecasting data, our approach to statistical anomaly detection focuses on **temperature** and **precipitation** as key variables. These factors provide a robust foundation for identifying extreme weather patterns, such as unusually high or low temperatures and significant deviations in precipitation levels.
-- For this study, anomalous patterns are defined by instances of extreme hot or cold conditions and precipitation outliers, as these deviations from the norm represent meaningful climate variations. 
+- For this study, anomalous patterns are defined by instances of extreme hot or cold conditions and precipitation outliers, as these deviations from the norm represent meaningful climate variations.
+
+---
 
 #### Z-Score and IQR 
 
@@ -85,7 +87,6 @@ Cleaned Dataset:
 
 The vast difference in the number of outliers predicted can be due to the fact that the Z-Score method assumes that the data is normally distributed while the IQR method makes no such assumption. It is thus important to assess the skewness of the data for more accurate predictions.
 
-
 <div style="margin-bottom: 5px;">
   <iframe src="assets/temp_box.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
 </div>
@@ -107,6 +108,8 @@ The vast difference in the number of outliers predicted can be due to the fact t
 
 In order to further assess, our anomaly detection, we will now use a data-driven anomaly detection method to evaluate our results.
 
+---
+
 #### Isolation-Forest   
 - Total number of outliers predicted for temperature: 2346 out of 46967 data points.
 - Total number of outliers predicted for precipitation: 2337 out of 46967 data points.
@@ -126,6 +129,7 @@ In order to further assess, our anomaly detection, we will now use a data-driven
 
 **Note:** The extreme variations in `Temperature` and `Precipitation` are depicted in the [Spatial Analysis](./index.html#spatial-analysis) section of the report.
 
+---
 
 ### Framing a Prediction Problem
 
@@ -148,7 +152,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 - For temperature anomalies, the Z-score method was used, while Isolation Forest was selected for precipitation anomalies, 
 - TimeSeriesSplit was used for cross-validation for all models as it ensures that the evaluation respects the temporal order of the data, yielding a more reliable assessment of model performance over time.
 
-
+---
 
 ### Forecasting Models
 
@@ -160,6 +164,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
   - These lag features serve as inputs for forecasting models, helping to predict current values based on recent historical patterns.
   - After creating lag features, rows containing missing values are dropped.
 
+---
 
 #### Model Results
 
@@ -185,7 +190,6 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 |  5 | Precipitation | Meta model    | 0.25  |  0.24 |       1.76   |       3.83 |
 
 
-
 **Temperature:**
 - Errors for `temperature` forecasting are higher across all models compared to `precipitation`, which is expected due to the more complex and dynamic nature of `temperature` fluctuations.
 - The **meta-model** outshines other models, achieving the lowest MAE (1.82) and MSE (5.88) for normal data, indicating its superior ability to generalize across diverse temperature patterns.
@@ -193,6 +197,8 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 **Precipitation:**
 - `Precipitation` forecasts consistently yield lower MAE and MSE values across models compared to `temperature`, reflecting the comparatively more stable nature of `precipitation` data.
 - The **Random Forest** model retains the lowest errors (MAE: 0.23821, MSE: 0.23849) outperforming both **SARIMA** and the **Meta Model**. Its inherent capacity to capture non-linear interactions and avoid overfitting through ensemble averaging ensures robust and precise predictions.
+
+---
 
 #### Key Takeaways
 - `Temperature` trends are more complex, involving subtle seasonal patterns and continuous variability, as seen in the plots previously. The stacked ensemble's combination of linear and non-linear models provides the flexibility to model these patterns effectively. However, `precipitation` data is more discrete and less prone to subtle trends and thus benefits from **Random Forest's** direct handling of feature splits and non-linearity. The additional complexity of the meta-model does not add significant benefits and slightly increases error for normal precipitation data.
@@ -203,7 +209,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 
 **Note:** Temperature trends from 2024-2025 are depicted in the [Climate Analysis](./index.html#climate-analysis) section of the report
 
-
+---
 
 ### Unique Analysis
 #### Geographical Patterns
@@ -226,6 +232,8 @@ Variations for each variable are depicted differently:
 - This helps us understand why our SARIMA model struggled to make accurate predictions.
 - Random Forest and Meta models, with their ability to handle complexity, are better suited for generalization, and this helps explain their better performance on Iceland's data.
 
+---
+
 #### Spatial Analysis
 
 **Note:** While grouping by country, the aggregation metric used was max, to amplify extreme weather conditions allowing for comparisons with the [anomaly detection](./index.html#statistical-anomaly-detection) schemes explored earlier.  
@@ -239,6 +247,8 @@ Variations for each variable are depicted differently:
 </div>
 
 Notably, Iceland is at the lower extreme in both chloropleths. This also helps rationalize why Iceland was a near-outlier when analyzing country-wise [geographical patterns](./index.html#geographical-patterns).
+
+---
 
 #### Feature Importance:
 
@@ -260,7 +270,8 @@ Notably, Iceland is at the lower extreme in both chloropleths. This also helps r
   - higher wind speeds disperse pollutants, leading to improved air quality
   - strong winds in certain regions can also carry dust or particulates, impacting AQI negatively
   - moisture in the air can interact with pollutants, either trapping them (worsening AQI) or helping in their deposition (improving AQI)
-
+ 
+ ---
 
 #### Environmental Impact
 
@@ -287,7 +298,7 @@ The correlation analysis provides insights into the relationships between meteor
     - Moderate and consistent correlation across all air quality variables reflecting its role as a natural cleaner of the atmosphere. Rainfall effectively removes pollutants like PM₁₀, NO₂, and others through wet deposition.
     - This consistency suggests precipitation uniformly influences air quality by washing out various pollutants.
 
-
+---
 
 #### Climate Analysis
 
@@ -302,6 +313,8 @@ Demonstration of changing temperature and precipitation trends across all countr
 </div>
 
 **Note:** In order to view the trend of a single country alone, double click it in the legend!
+
+---
 
 ### PM Accelerator Mission
 "By making industry-leading tools and education available to individuals from all backgrounds, we level the playing field for future PM leaders. This is the PM Accelerator motto, as we grant aspiring and experienced PMs what they need most – Access. We introduce you to industry leaders, surround you with the right PM ecosystem, and discover the new world of AI product management skills."
