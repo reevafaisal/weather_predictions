@@ -37,6 +37,8 @@ The following columns are relevant to the analysis:
 | air_quality_us-epa-index         | The air quality index as per the US EPA standards.                      |
 | air_quality_gb-defra-index       | The air quality index as per the UK DEFRA standards.                    |
 
+---
+
 ### Data Cleaning 
 - Removed columns that were either irrelevant to the analysis or provided redundant information, such as duplicate measurements in different units or unnecessary time-related columns.
 - Transformed the `last_updated` column into a DateTime format for consistency and easier time-based analysis.
@@ -52,24 +54,16 @@ Cleaned Dataset:
 | Andorra     | 42.5     | 1.52      | 2024-05-16 10:45:00  | 6.3              | 11.9       | 215         | 1007          | 0.3         | 61       | 100   | 2              | 13.7      | 170.2      | 64.4   | 1.6      | 0.2    | 0.7    | 0.9       | 1       | 1          | 1            |
 | Angola      | -8.84    | 13.23     | 2024-05-16 09:45:00  | 26.0             | 13.0       | 150         | 1011          | 0           | 89       | 50    | 8              | 20.2      | 2964.0     | 19.0   | 72.7     | 31.5   | 183.4  | 262.3     | 5       | 10         | 1            |
 
+---
 
 ### Advanced Exploratory Data Analysis
 
 #### Statistical Anomaly Detection
 
-Moving forward, I am choosing to focus on **precipitation** and **temperature** as key variables for statistical anomaly detection. Temperature and precipitation offer a meaningful basis for comparison across different locations and periods, making them ideal for detecting and understanding statistical anomalies in weather data. This focus will enable a targeted and practical approach to uncovering significant outliers and trends.
+ - Given that our dataset reflects current weather conditions rather than traditional forecasting data, our approach to statistical anomaly detection focuses on **temperature** and **precipitation** as key variables. These factors provide a robust foundation for identifying extreme weather patterns, such as unusually high or low temperatures and significant deviations in precipitation levels.
+- For this study, anomalous patterns are defined by instances of extreme hot or cold conditions and precipitation outliers, as these deviations from the norm represent meaningful climate variations. 
 
 #### Z-Score and IQR 
-
-We will first use the Z-Score and IQR methods to flag statistical anomalies.
-
-<div style="margin-bottom: 5px;">
-  <iframe src="assets/temp_comp.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
-</div>
-
-<div style="margin-bottom: 5px;">
-  <iframe src="assets/prec_comp.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
-</div>
 
 **Z-Score Method**
 - Values that exceed a threshold of `abs(z) > 3` are flagged as outliers.
@@ -80,6 +74,14 @@ We will first use the Z-Score and IQR methods to flag statistical anomalies.
 - Values beyond `1.5 * IQR` from the first or third quartile are flagged as outliers.
 - Total number of outliers predicted for temperature: 1527 out of 46967 data points.
 - Total number of outliers predicted for precipitation: 9092 out of 46967 data points.
+
+<div style="margin-bottom: 5px;">
+  <iframe src="assets/temp_comp.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+</div>
+
+<div style="margin-bottom: 5px;">
+  <iframe src="assets/prec_comp.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+</div>
 
 The vast difference in the number of outliers predicted can be due to the fact that the Z-Score method assumes that the data is normally distributed while the IQR method makes no such assumption. It is thus important to assess the skewness of the data for more accurate predictions.
 
@@ -109,10 +111,6 @@ In order to further assess, our anomaly detection, we will now use a data-driven
 - Total number of outliers predicted for temperature: 2346 out of 46967 data points.
 - Total number of outliers predicted for precipitation: 2337 out of 46967 data points.
 
-<div style="margin-bottom: 5px;">
-  <iframe src="assets/iso_for.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
-</div>
-
 - The `Isolation Forest` significantly overestimates outliers for temperature.
   - It flags minute variations in temperature as anomalies, even if these variations are part of natural fluctuations or seasonal patterns.
   - Even slight deviations from high-density clusters are flagged as anomalies because the algorithm does not account for the natural fluctuation patterns.
@@ -120,10 +118,13 @@ In order to further assess, our anomaly detection, we will now use a data-driven
   - Clicking 'True' in the legend hides the outliers and shows the 'False' points. This reveals a dense concentration of non-outlier data in the 0–1 range, which aligns with precipitation's high skewness.
   - Doing the same for the Precipitation IQR plot reveals visible lines highlighting the ineffectiveness of this method in temperature data due to quartile-based thresholds resulting in abrupt transitions.
 
+<div style="margin-bottom: 5px;">
+  <iframe src="assets/iso_for.html" width="800" height="400px" frameborder="0" scrolling="yes" style="transform: translateX(-50px);margin-bottom: 5px;"></iframe>
+</div>
+
 **Conclusion:** Moving forward, for any analysis concerning anomalies, we will use the Z-Score method for temperature and the Isolation Forest for precipitation to ensure reliable and accurate anomaly detection.
 
 **Note:** The extreme variations in `Temperature` and `Precipitation` are depicted in the [Spatial Analysis](./index.html#spatial-analysis) section of the report.
-
 
 
 ### Framing a Prediction Problem
