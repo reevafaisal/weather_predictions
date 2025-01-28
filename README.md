@@ -65,7 +65,7 @@ Cleaned Dataset:
 
 ---
 
-#### Z-Score and IQR 
+### Z-Score and IQR 
 
 **Z-Score Method**
 - Values that exceed a threshold of `abs(z) > 3` are flagged as outliers.
@@ -110,7 +110,7 @@ In order to further assess, our anomaly detection, we will now use a data-driven
 
 ---
 
-#### Isolation-Forest   
+### Isolation-Forest   
 - Total number of outliers predicted for temperature: 2346 out of 46967 data points.
 - Total number of outliers predicted for precipitation: 2337 out of 46967 data points.
 
@@ -166,7 +166,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 
 ---
 
-#### Model Results
+### Model Results
 
 |    | Variable      | Model         |      MAE |       MSE |   Anomaly MAE |   Anomaly MSE |
 |---:|:--------------|:--------------|---------:|----------:|--------------:|--------------:|
@@ -176,7 +176,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 |  3 | Precipitation | Random Forest | 0.23  |  0.23  |       1.71 |       3.66 |
 
 
-#### Stacked Ensemble Model
+### Stacked Ensemble Model
 
 ![image](assets/stacking_ensemble_flowchart.png)
 
@@ -200,7 +200,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 
 ---
 
-#### Key Takeaways
+### Key Takeaways
 - `Temperature` trends are more complex, involving subtle seasonal patterns and continuous variability, as seen in the plots previously. The stacked ensemble's combination of linear and non-linear models provides the flexibility to model these patterns effectively. However, `precipitation` data is more discrete and less prone to subtle trends and thus benefits from **Random Forest's** direct handling of feature splits and non-linearity. The additional complexity of the meta-model does not add significant benefits and slightly increases error for normal precipitation data.
 - All models struggle with anomaly scenarios, as reflected by the significantly higher MAE and MSE values for anomalies compared to normal data. However, the meta-model exhibits the overall best capability to handle anomalies. Although **Random Forest** does just slightly better at handling `Precipitation` anomalies, the meta-model's handling of `Temperature` anomalies is vastly better making it superior. This is another reflection of the simplicity of `precipitation` data which does not require the complex ensemble model.
 - The **meta-model** demonstrates its superiority in capturing both normal and anomalous patterns, making it the overall most reliable option for this use case.
@@ -212,7 +212,7 @@ This is primarily a time-series forecasting and anomaly detection problem. The g
 ---
 
 ### Unique Analysis
-#### Geographical Patterns
+### Geographical Patterns
 
 Using this plot, we can explore how weather conditions vary across regions.
 Variations for each variable are depicted differently:
@@ -234,7 +234,7 @@ Variations for each variable are depicted differently:
 
 ---
 
-#### Spatial Analysis
+### Spatial Analysis
 
 **Note:** While grouping by country, the aggregation metric used was max, to amplify extreme weather conditions allowing for comparisons with the [anomaly detection](./index.html#statistical-anomaly-detection) schemes explored earlier.  
 
@@ -250,7 +250,7 @@ Notably, Iceland is at the lower extreme in both chloropleths. This also helps r
 
 ---
 
-#### Feature Importance:
+### Feature Importance:
 
 - Ran a `RandomForestRegressor` with:
   ```
@@ -273,7 +273,7 @@ Notably, Iceland is at the lower extreme in both chloropleths. This also helps r
  
  ---
 
-#### Environmental Impact
+### Environmental Impact
 
 The correlation analysis provides insights into the relationships between meteorological variables and different air quality indicators. 
 
@@ -300,7 +300,7 @@ The correlation analysis provides insights into the relationships between meteor
 
 ---
 
-#### Climate Analysis
+### Climate Analysis
 
 Demonstration of changing temperature and precipitation trends across all countries in the dataset from 2024-2025:
 
