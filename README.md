@@ -1,5 +1,7 @@
 ## Skies Unveiled: Patterns, Predictions, and Anomalies in Weather Data
 
+---
+
 ### Introduction
 
 The dataset from the [Global Weather Repository](https://www.kaggle.com/datasets/nelgiriyewithana/global-weather-repository/code), provides comprehensive meteorological data collected from various locations 
