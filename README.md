@@ -39,8 +39,6 @@ The following columns are relevant to the analysis:
 | air_quality_us-epa-index         | The air quality index as per the US EPA standards.                      |
 | air_quality_gb-defra-index       | The air quality index as per the UK DEFRA standards.                    |
 
----
-
 ### Data Cleaning 
 - Removed columns that were either irrelevant to the analysis or provided redundant information, such as duplicate measurements in different units or unnecessary time-related columns.
 - Transformed the `last_updated` column into a DateTime format for consistency and easier time-based analysis.
