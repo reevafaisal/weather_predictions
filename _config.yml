@@ -55,7 +55,7 @@ navigation:
       link: ./index.html#environmental-impact
     - name: Climate Analysis
       link: ./index.html#climate-analysis
-  - name: PM Accelerator
-    link: ./index.html#pm-accelerator-mission
+  # - name: PM Accelerator
+  #   link: ./index.html#pm-accelerator-mission
     # - name: Isolation-Forest
     #   link: ./index.html#isolation-forest
